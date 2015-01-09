@@ -39,7 +39,7 @@ finalHsp = 0;
 fullSpeed = 0;
 
 //jump
-jumpSpeed = 10;
+jumpSpeed = 8;
 jumpCap = 8;
 grounded = 0;
 jump = 0;
@@ -171,14 +171,13 @@ if (moveSpeed &gt;= 13) fullSpeed = true;
 
 hsp = move * moveSpeed;
 
-
 //horizontal collision\\
 if (place_meeting(x+finalHsp,y,obj_wall))
 {
-    while(!place_meeting(x+sign(finalHsp),y,obj_wall))
-    {
-        x += sign(move);
-    }
+    //while(!place_meeting(x+sign(finalHsp),y,obj_wall))
+    //{
+   //     x += sign(move);
+   // }
     finalHsp = 0;
 }
 
@@ -191,8 +190,6 @@ if (place_meeting(x,y+vsp,obj_wall))
     }
     vsp = 0;
 }
-
-
 
 //state switcher\\
 if (grounded &amp;&amp; move !=0) playerState = 'WALK';
@@ -230,7 +227,14 @@ case 'WALK':
 
 case 'SLDE':
     image_speed = 0.5;
-    x += slideMove*2;
+    if (place_meeting(x+slideMove*2,y,obj_wall))
+    {
+        x += 0;
+    }
+    else
+    {
+        x += slideMove*2;
+    }
     y += vsp;
     sprite_index = spr_player_slide;
     if (image_index &gt;= image_number - 1)
