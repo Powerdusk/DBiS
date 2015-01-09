@@ -8,7 +8,6 @@
   <sprites name="sprites">
     <sprites name="player">
       <sprite>sprites\spr_player</sprite>
-      <sprite>sprites\spr_player2</sprite>
       <sprite>sprites\spr_player_jump_up</sprite>
       <sprite>sprites\spr_player_jump_dn</sprite>
       <sprite>sprites\spr_player_run</sprite>
