@@ -10,7 +10,7 @@
   <bbox_left>96</bbox_left>
   <bbox_right>159</bbox_right>
   <bbox_top>50</bbox_top>
-  <bbox_bottom>255</bbox_bottom>
+  <bbox_bottom>245</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -34,7 +34,5 @@
     <frame index="11">images\spr_player_jump_up_11.png</frame>
     <frame index="12">images\spr_player_jump_up_12.png</frame>
     <frame index="13">images\spr_player_jump_up_13.png</frame>
-    <frame index="14">images\spr_player_jump_up_14.png</frame>
-    <frame index="15">images\spr_player_jump_up_15.png</frame>
   </frames>
 </sprite>
