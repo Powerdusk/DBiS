@@ -30,6 +30,7 @@ vsp = 0;
 hsp = 0;
 move = 0;
 slideMove = 1;
+isAtk = 0;
 
 //move
 moveSpeed = 0;
@@ -194,14 +195,18 @@ if (place_meeting(x,y+vsp,obj_wall))
 
 //state switcher\\
 
+if (grounded &amp;&amp; key_atk_1)
+{
+    playerState = 'ATCK';
+}
 
-if (grounded &amp;&amp; (key_moveReleaseR || key_moveReleaseL) &amp;&amp; fullSpeed)
+else if (grounded &amp;&amp; (key_moveReleaseR || key_moveReleaseL) &amp;&amp; fullSpeed &amp;&amp; playerState != 'ATCK')
 {
     moveSpeed = 0;
     playerState = 'SLDE';
     image_index = 0;
 }
-else if (grounded &amp;&amp; (key_left &amp;&amp; key_right) &amp;&amp; fullSpeed &amp;&amp; playerState == 'WALK')
+else if (grounded &amp;&amp; (key_left &amp;&amp; key_right) &amp;&amp; fullSpeed &amp;&amp; playerState == 'WALK' &amp;&amp; playerState != 'ATCK')
 {
     moveSpeed = 0;
     playerState = 'SLDE';
@@ -209,21 +214,20 @@ else if (grounded &amp;&amp; (key_left &amp;&amp; key_right) &amp;&amp; fullSpee
 }
 
 
-else if (grounded &amp;&amp; (key_left &amp;&amp; key_right) &amp;&amp; !fullSpeed &amp;&amp; playerState != 'SLDE')
+else if (grounded &amp;&amp; (key_left &amp;&amp; key_right) &amp;&amp; !fullSpeed &amp;&amp; playerState != 'SLDE' &amp;&amp; playerState != 'ATCK')
 {
     moveSpeed = 0;
     playerState = 'IDLE';
     image_index = 0;
 }
 
-else if (grounded &amp;&amp; move !=0 &amp;&amp; playerState != 'SLDE')
+else if (grounded &amp;&amp; move !=0 &amp;&amp; playerState != 'SLDE' &amp;&amp; playerState != 'ATCK')
 {
     playerState = 'WALK';
     if (key_left != 0) slideMove = -1;
     if (key_right != 0) slideMove = 1;
 }
-else if (grounded &amp;&amp; moveSpeed == 0 &amp;&amp; playerState != 'SLDE') playerState = 'IDLE';
-//else if (grounded &amp;&amp; key_atk_1) playerState = 'ATCK';
+else if (grounded &amp;&amp; moveSpeed == 0 &amp;&amp; playerState != 'SLDE' &amp;&amp; playerState != 'ATCK') playerState = 'IDLE';
 
 // JUMP - FALL \\
 if (grounded &amp;&amp; key_jumpInit)
@@ -237,6 +241,14 @@ else if (!grounded &amp;&amp; playerState != 'JUMP') playerState = 'FALL';
 
 switch (playerState)
 {
+case 'ATCK':
+    sprite_index = spr_player_atk_1;
+    if (image_index &gt;= image_number - 1)
+    {
+        playerState = 'IDLE';
+    }
+    break;
+
 case 'IDLE':
     image_speed = .5;
     sprite_index = spr_player;
@@ -312,11 +324,6 @@ case 'FALL':
     {
     image_speed = 0;
     }
-    break;
-
-case 'ATK1':
-    sprite_index = spr_player_atk_1;
-    image_index = 0;
     break;
 
 /*default:
