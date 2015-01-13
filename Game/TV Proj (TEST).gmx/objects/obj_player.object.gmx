@@ -47,6 +47,7 @@ jump = 0;
 jumpIncrement = 0;
 jumpPlus = 0.5;
 
+
 //life n death
 lifepts = 0;
 
@@ -84,6 +85,7 @@ key_left = keyboard_check(vk_left);
 key_jumpInit = keyboard_check_pressed(vk_up);
 key_jumpHold = keyboard_check(vk_up);
 key_moveReleaseR = keyboard_check_released(vk_right);
+key_atkRelease = keyboard_check_released(ord("Z"));
 key_moveReleaseL = keyboard_check_released(vk_left);
 key_movePressR = keyboard_check_pressed(vk_right);
 key_movePressL = keyboard_check_pressed(vk_left);
@@ -245,8 +247,10 @@ case 'ATCK':
     sprite_index = spr_player_atk_1;
     if (image_index &gt;= image_number - 1)
     {
+        image_index = 0;
         playerState = 'IDLE';
     }
+    
     break;
 
 case 'IDLE':
