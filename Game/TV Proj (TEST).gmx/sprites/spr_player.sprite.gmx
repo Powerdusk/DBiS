@@ -2,7 +2,7 @@
 <sprite>
   <type>0</type>
   <xorig>128</xorig>
-  <yorigin>128</yorigin>
+  <yorigin>256</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
@@ -60,5 +60,17 @@
     <frame index="37">images\spr_player_37.png</frame>
     <frame index="38">images\spr_player_38.png</frame>
     <frame index="39">images\spr_player_39.png</frame>
+    <frame index="40">images\spr_player_40.png</frame>
+    <frame index="41">images\spr_player_41.png</frame>
+    <frame index="42">images\spr_player_42.png</frame>
+    <frame index="43">images\spr_player_43.png</frame>
+    <frame index="44">images\spr_player_44.png</frame>
+    <frame index="45">images\spr_player_45.png</frame>
+    <frame index="46">images\spr_player_46.png</frame>
+    <frame index="47">images\spr_player_47.png</frame>
+    <frame index="48">images\spr_player_48.png</frame>
+    <frame index="49">images\spr_player_49.png</frame>
+    <frame index="50">images\spr_player_50.png</frame>
+    <frame index="51">images\spr_player_51.png</frame>
   </frames>
 </sprite>

@@ -2,7 +2,7 @@
 <sprite>
   <type>0</type>
   <xorig>128</xorig>
-  <yorigin>128</yorigin>
+  <yorigin>256</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
@@ -27,5 +27,8 @@
     <frame index="4">images\spr_player_slide_4.png</frame>
     <frame index="5">images\spr_player_slide_5.png</frame>
     <frame index="6">images\spr_player_slide_6.png</frame>
+    <frame index="7">images\spr_player_slide_7.png</frame>
+    <frame index="8">images\spr_player_slide_8.png</frame>
+    <frame index="9">images\spr_player_slide_9.png</frame>
   </frames>
 </sprite>
