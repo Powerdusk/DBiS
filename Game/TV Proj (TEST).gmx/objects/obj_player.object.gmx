@@ -340,11 +340,11 @@ case 'FALL':
     }
     break;
 
-/*default:
+default:
     sprite_index = spr_player;
     if (move != 0) image_xscale = move;
     else image_xscale = 1;
-    break;*/
+    break;
 
 }
 
