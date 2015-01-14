@@ -197,9 +197,9 @@ if (place_meeting(x,y+vsp,obj_wall))
 
 //state switcher\\
 
-if (grounded &amp;&amp; key_atk_1)
+if (grounded &amp;&amp; key_atk_1 &amp;&amp; playerState != 'ATCK')
 {
-    playerState = 'ATCK';
+    playerState = 'BATK';
 }
 
 else if (grounded &amp;&amp; (key_moveReleaseR || key_moveReleaseL) &amp;&amp; fullSpeed &amp;&amp; playerState != 'ATCK')
@@ -243,11 +243,21 @@ else if (!grounded &amp;&amp; playerState != 'JUMP') playerState = 'FALL';
 
 switch (playerState)
 {
-case 'ATCK':
+case 'BATK':
     sprite_index = spr_player_atk_1;
+    image_index = 0;
+    playerState = 'ATCK';
+case 'ATCK':
+    if (place_meeting(x+slideMove*2,y,obj_wall))
+    {
+        x += 0;
+    }
+    else
+    {
+        x += slideMove*2;
+    }
     if (image_index &gt;= image_number - 1)
     {
-        image_index = 0;
         playerState = 'IDLE';
     }
     
