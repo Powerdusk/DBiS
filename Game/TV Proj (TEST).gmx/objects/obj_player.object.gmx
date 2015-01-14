@@ -378,10 +378,10 @@ case 'FALL':
     if (move != 0) image_xscale = move;
   
 
-    if (image_index &gt;= image_number - 1)
-    {
-    image_speed = 0;
-    }
+    //if (image_index &gt;= image_number - 1)
+    //{
+    //image_speed = 0;
+    //}
      if (key_jumpInit &amp;&amp; doubleJump == 0)
     { 
         playerState = 'DJMP';
@@ -425,6 +425,7 @@ draw_text (view_xview[0]+20,view_yview[0]+60,moveSpeed);
 draw_text (view_xview[0]+20,view_yview[0]+80,grounded);
 draw_text (view_xview[0]+20,view_yview[0]+100,slideMove);
 draw_text (view_xview[0]+20,view_yview[0]+120,fullSpeed);
+draw_text (view_xview[0]+20,view_yview[0]+140,image_speed);
 draw_self();
 
 </string>
