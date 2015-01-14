@@ -46,6 +46,7 @@ grounded = 0;
 jump = 0;
 jumpIncrement = 0;
 jumpPlus = 0.5;
+doubleJump = 0;
 
 
 //life n death
@@ -131,6 +132,7 @@ else if (key_left &amp;&amp; key_right) move = 0;
 if (place_meeting(x,y+1,obj_wall))
 {
    grounded = 1;
+   doubleJump = 0;
 }
 else
 {
@@ -189,10 +191,11 @@ if (place_meeting(x+finalHsp,y,obj_wall))
 if (place_meeting(x,y+vsp,obj_wall))
 {
    while(!place_meeting(x,y+sign(vsp),obj_wall))
-    {
-        y += sign(vsp);
-    }
+   {
+       y += sign(vsp);
+   }
     vsp = 0;
+    
 }
 
 //state switcher\\
@@ -237,7 +240,12 @@ if (grounded &amp;&amp; key_jumpInit)
     playerState = 'JUMP';
     image_index = 0;
 }
-else if (!grounded &amp;&amp; playerState != 'JUMP') playerState = 'FALL';
+else if (playerState =='JUMP' &amp;&amp; key_jumpInit)
+{
+    playerState = 'DJMP';
+    image_index = 0;
+}
+else if (!grounded &amp;&amp; playerState != 'JUMP' &amp;&amp;playerState != 'DJMP') playerState = 'FALL';
 
 //STATES\\
 
@@ -248,14 +256,15 @@ case 'BATK':
     image_index = 0;
     playerState = 'ATCK';
 case 'ATCK':
-    if (place_meeting(x+slideMove*2,y,obj_wall))
-    {
-        x += 0;
-    }
-    else
-    {
-        x += slideMove*2;
-    }
+    moveSpeed = 0;
+    //if (place_meeting(x+slideMove*2,y,obj_wall))
+    //{
+    //    x += 0;
+    //}
+    //else
+    //{
+    //    x += slideMove*2;
+    //}
     if (image_index &gt;= image_number - 1)
     {
         playerState = 'IDLE';
@@ -294,11 +303,45 @@ case 'SLDE':
     sprite_index = spr_player_slide;
     if (image_index &gt;= image_number - 1)
     {
-        playerState = 'IDLE';
+        if (key_left || key_right) playerState = 'WALK';
+        else playerState = 'IDLE';
+        moveSpeed = 0;
     }
     break;
 
 case 'JUMP':
+    vsp = -jumpSpeed;
+    x += finalHsp;
+    y += vsp;
+    sprite_index = spr_player_jump_up;
+    if (move != 0) image_xscale = move;
+    //else image_xscale = 1;
+    if (image_index &gt;= image_number - 1)
+    {
+    image_speed = 0;
+    }
+    if (key_jumpHold &amp;&amp; (jumpIncrement &lt; jumpCap)) 
+        {
+            jumpIncrement += jumpPlus;
+            vsp = -jumpSpeed; 
+        }
+    else
+        {
+            playerState = 'FALL';
+            jumpIncrement = 0;
+        }
+
+    if (place_meeting(x,y-1,obj_wall))
+    {
+        playerState = 'FALL';
+        jumpIncrement = 0;
+    }
+   
+    
+    break;
+
+case 'DJMP':
+    doubleJump = 1;
     vsp = -jumpSpeed;
     x += finalHsp;
     y += vsp;
@@ -330,6 +373,7 @@ case 'JUMP':
 case 'FALL':
     x += finalHsp;
     y += vsp;
+    image_speed = .5
     sprite_index = spr_player_jump_dn;
     if (move != 0) image_xscale = move;
   
@@ -337,6 +381,10 @@ case 'FALL':
     if (image_index &gt;= image_number - 1)
     {
     image_speed = 0;
+    }
+     if (key_jumpInit &amp;&amp; doubleJump == 0)
+    { 
+        playerState = 'DJMP';
     }
     break;
 
