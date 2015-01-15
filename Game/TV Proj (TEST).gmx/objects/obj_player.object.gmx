@@ -247,7 +247,7 @@ else if (playerState =='JUMP' &amp;&amp; key_jumpInit)
 }
 else if (!grounded &amp;&amp; playerState != 'JUMP' &amp;&amp;playerState != 'DJMP') playerState = 'FALL';
 
-//STATES\\
+//------STATES-------\\
 
 switch (playerState)
 {
@@ -257,16 +257,19 @@ case 'BATK':
     playerState = 'ATCK';
 case 'ATCK':
     moveSpeed = 0;
-    //if (place_meeting(x+slideMove*2,y,obj_wall))
-    //{
-    //    x += 0;
-    //}
-    //else
-    //{
-    //    x += slideMove*2;
-    //}
+    image_speed = 1
+
     if (image_index &gt;= image_number - 1)
     {
+        sprite_index = spr_player;
+        if (place_meeting(x+slideMove*156,y,obj_wall))
+        {
+            x += 0;
+        }
+        else
+        {
+            x += slideMove * 156;
+        }
         playerState = 'IDLE';
     }
     
