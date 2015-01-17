@@ -20,6 +20,7 @@
       <sprite>sprites\sprite3</sprite>
       <sprite>sprites\sprite7</sprite>
       <sprite>sprites\sprite8</sprite>
+      <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite9</sprite>
     </sprites>
   </sprites>
@@ -36,6 +37,7 @@
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_angleWall</object>
+    <object>objects\object6</object>
     <object>objects\obj_bgs</object>
     <object>objects\object5</object>
   </objects>
