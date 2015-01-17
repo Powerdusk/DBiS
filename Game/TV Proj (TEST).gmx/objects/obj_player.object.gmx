@@ -139,16 +139,7 @@ else
    grounded = 0; 
 }
 
-//final vars\\
 
-vsp += grav;
-finalHsp = hsp;
-
-//direction to move\\
-
-
-
-//move = key_left + key_right;
 
 //move speed &amp; ramp\\
 if (move != 0)
@@ -177,19 +168,41 @@ if (moveSpeed &gt;= 13) fullSpeed = true;
 
 hsp = move * moveSpeed;
 
+//final vars\\
+
+vsp += grav;
+finalHsp = hsp;
+
+
 //horizontal collision\\
 if (place_meeting(x+finalHsp,y,obj_wall))
 {
-    //while(!place_meeting(x+sign(finalHsp),y,obj_wall))
-    //{
-   //     x += sign(move);
-   // }
-    finalHsp = 0;
+    yplus = 0;
+    while(place_meeting(x+hsp,y-yplus,obj_wall)) &amp;&amp; yplus&lt;=20
+    { 
+        yplus+=1
+    }
+    if place_meeting(x+hsp,y-yplus,obj_wall)
+    {
+        if (place_meeting(x+finalHsp, y-yplus,obj_wall))
+        {
+            //while(!place_meeting(x+sign(finalHsp),y,obj_wall))
+            //{
+            //    x += sign(move);
+            //}
+            finalHsp = 0;
+        }
+    }
+    else y-= yplus;
+    
 }
+
+
 
 //vertical Collision\\
 if (place_meeting(x,y+vsp,obj_wall))
 {
+    
    while(!place_meeting(x,y+sign(vsp),obj_wall))
    {
        y += sign(vsp);
@@ -197,6 +210,7 @@ if (place_meeting(x,y+vsp,obj_wall))
     vsp = 0;
     
 }
+
 
 //state switcher\\
 
