@@ -178,11 +178,11 @@ finalHsp = hsp;
 if (place_meeting(x+finalHsp,y,obj_wall))
 {
     yplus = 0;
-    while(place_meeting(x+hsp,y-yplus,obj_wall)) &amp;&amp; yplus&lt;=20
+    while((place_meeting(x+finalHsp,y-yplus,obj_wall)) &amp;&amp; yplus&lt;= abs(1.5*hsp+1))
     { 
         yplus+=1
     }
-    if place_meeting(x+hsp,y-yplus,obj_wall)
+    if place_meeting(x+finalHsp,y-yplus,obj_wall)
     {
         if (place_meeting(x+finalHsp, y-yplus,obj_wall))
         {
@@ -272,6 +272,7 @@ case 'BATK':
 case 'ATCK':
     moveSpeed = 0;
     image_speed = 1
+    if (image_index &gt;= image_number / 2)instance_create(x+slideMove*300,y-180,obj_attack);
 
     if (image_index &gt;= image_number - 1)
     {
@@ -335,7 +336,7 @@ case 'JUMP':
     //else image_xscale = 1;
     if (image_index &gt;= image_number - 1)
     {
-    image_speed = 0;
+        image_speed = 0;
     }
     if (key_jumpHold &amp;&amp; (jumpIncrement &lt; jumpCap)) 
         {
@@ -348,7 +349,7 @@ case 'JUMP':
             jumpIncrement = 0;
         }
 
-    if (place_meeting(x,y-1,obj_wall))
+    if (place_meeting(x,y-10,obj_wall))
     {
         playerState = 'FALL';
         jumpIncrement = 0;

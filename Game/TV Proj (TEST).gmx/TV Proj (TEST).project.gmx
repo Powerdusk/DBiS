@@ -23,6 +23,11 @@
       <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite9</sprite>
     </sprites>
+    <sprites name="enemies">
+      <sprite>sprites\enemy_1</sprite>
+      <sprite>sprites\enemy_1_death</sprite>
+    </sprites>
+    <sprite>sprites\spr_attack</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_1</background>
@@ -40,6 +45,8 @@
     <object>objects\object6</object>
     <object>objects\obj_bgs</object>
     <object>objects\object5</object>
+    <object>objects\obj_enemy</object>
+    <object>objects\obj_attack</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_blank</room>
