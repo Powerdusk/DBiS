@@ -51,6 +51,7 @@ dying = false;
           <argument>
             <kind>1</kind>
             <string>getHit = false;
+
 </string>
           </argument>
         </arguments>
@@ -82,7 +83,7 @@ dying = false;
 if (hp &lt; 0) dying = true;
 
 if (dying == true) sprite_index = enemy_1_death;
-if (dying == true &amp; image_index &gt;= image_number) instance_destroy();  
+if (dying == true &amp;&amp; image_index &gt;= image_number) instance_destroy();  
 </string>
           </argument>
         </arguments>
