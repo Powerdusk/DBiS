@@ -50,7 +50,8 @@ dying = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>getHit = false;
+            <string>image_blend = c_white;
+getHit = false;
 
 </string>
           </argument>
@@ -78,12 +79,15 @@ dying = false;
 {
     if(!getHit) hp--;
     getHit = true;
+    image_blend = c_red;
     alarm[0] = 6;
 }
-if (hp &lt; 0) dying = true;
+if (hp &lt;= 0) dying = true;
 
-if (dying == true) sprite_index = enemy_1_death;
-if (dying == true &amp;&amp; image_index &gt;= image_number) instance_destroy();  
+if (dying == true){
+sprite_index = enemy_1_death;
+}
+if (dying == true &amp;&amp; image_index &gt;= image_number-1) instance_destroy();  
 </string>
           </argument>
         </arguments>
