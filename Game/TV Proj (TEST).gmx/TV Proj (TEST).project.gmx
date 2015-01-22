@@ -15,6 +15,9 @@
       <sprites name="atk">
         <sprite>sprites\spr_player_atk_1</sprite>
       </sprites>
+      <sprites name="misc">
+        <sprite>sprites\spr_jumpDust</sprite>
+      </sprites>
     </sprites>
     <sprites name="walls">
       <sprite>sprites\sprite3</sprite>
@@ -50,6 +53,7 @@
     <object>objects\object5</object>
     <object>objects\obj_enemy</object>
     <object>objects\obj_attack</object>
+    <object>objects\obj_jumpDust</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_blank</room>
