@@ -178,7 +178,7 @@ finalHsp = hsp;
 if (place_meeting(x+finalHsp,y,obj_wall))
 {
     yplus = 0;
-    while((place_meeting(x+finalHsp,y-yplus,obj_wall)) &amp;&amp; yplus&lt;= abs(1.5*hsp+1))
+    while((place_meeting(x+finalHsp,y-yplus,obj_wall)) &amp;&amp; yplus&lt;= abs(1.5*finalHsp+1))
     { 
         yplus+=1
     }
@@ -197,7 +197,27 @@ if (place_meeting(x+finalHsp,y,obj_wall))
     
 }
 
-
+else
+{
+    yminus = 0;
+    while((place_meeting(x+finalHsp,y+yminus,obj_wall)) &amp;&amp; yminus&gt;= 20)
+    { 
+        yplus+=1
+    }
+    if place_meeting(x+finalHsp,y+yminus,obj_wall)
+    {
+        if (place_meeting(x+finalHsp, y+yminus,obj_wall))
+        {
+            //while(!place_meeting(x+sign(finalHsp),y,obj_wall))
+            //{
+            //    x += sign(move);
+            //}
+            finalHsp = 0;
+        }
+    }
+    else y+= yminus;
+    
+}
 
 //vertical Collision\\
 if (place_meeting(x,y+vsp,obj_wall))
@@ -259,7 +279,12 @@ else if (playerState =='JUMP' &amp;&amp; key_jumpInit)
     playerState = 'DJMP';
     image_index = 0;
 }
-else if (!grounded &amp;&amp; playerState != 'JUMP' &amp;&amp;playerState != 'DJMP') playerState = 'FALL';
+else if (
+    !grounded &amp;&amp; 
+    playerState != 'JUMP' &amp;&amp;
+    playerState != 'DJMP' 
+
+    )  playerState = 'FALL';
 
 //------STATES-------\\
 
@@ -271,6 +296,7 @@ case 'BATK':
     playerState = 'ATCK';
 case 'ATCK':
     moveSpeed = 0;
+    
     image_speed = 1
     if (image_index &gt;= image_number / 2)instance_create(x+slideMove*300,y-180,obj_attack);
 
@@ -437,7 +463,9 @@ default:
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text (view_xview[0]+20,view_yview[0]+20,playerState);
+            <string>draw_set_color(c_white);
+draw_set_font(font0);
+draw_text (view_xview[0]+20,view_yview[0]+20,playerState);
 draw_text (view_xview[0]+20,view_yview[0]+40,sprite_index);
 draw_text (view_xview[0]+20,view_yview[0]+60,moveSpeed);
 draw_text (view_xview[0]+20,view_yview[0]+80,grounded);

@@ -38,6 +38,9 @@
     <script>scripts\draw_background_tiled_horizontal.gml</script>
     <script>scripts\scr_get_gamepad.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>

@@ -51,12 +51,5 @@
     <frame index="28">images\spr_player_jump_dn_28.png</frame>
     <frame index="29">images\spr_player_jump_dn_29.png</frame>
     <frame index="30">images\spr_player_jump_dn_30.png</frame>
-    <frame index="31">images\spr_player_jump_dn_31.png</frame>
-    <frame index="32">images\spr_player_jump_dn_32.png</frame>
-    <frame index="33">images\spr_player_jump_dn_33.png</frame>
-    <frame index="34">images\spr_player_jump_dn_34.png</frame>
-    <frame index="35">images\spr_player_jump_dn_35.png</frame>
-    <frame index="36">images\spr_player_jump_dn_36.png</frame>
-    <frame index="37">images\spr_player_jump_dn_37.png</frame>
   </frames>
 </sprite>
