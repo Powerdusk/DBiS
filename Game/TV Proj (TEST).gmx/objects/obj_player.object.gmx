@@ -276,7 +276,7 @@ case 'BATK':
     playerState = 'ATCK';
 case 'ATCK':
     moveSpeed = 0;
-    image_speed = 1;
+    image_speed = .5;
     finalX = view_xview[0];
     finalY = view_yview[0];
     view_xview[0]+= slideMove*15.5;
@@ -326,7 +326,7 @@ case 'WALK':
     break;
 
 case 'SLDE':
-    image_speed = 1;
+    image_speed = .5;
     fullSpeed = 0;
     if (place_meeting(x+slideMove*2,y,obj_wall))
     {
