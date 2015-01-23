@@ -274,13 +274,12 @@ case 'BATK':
     sprite_index = spr_player_atk_1;
     image_index = 0;
     playerState = 'ATCK';
+    finalX = view_xview[0];
+    finalY = view_yview[0];
 case 'ATCK':
     moveSpeed = 0;
     image_speed = .5;
-    finalX = view_xview[0];
-    finalY = view_yview[0];
-    view_xview[0]+= slideMove*15.5;
-    finalX += slideMove*15.5
+    //finalX += slideMove*15.5
     if (image_index &gt;= image_number / 2)instance_create(x+slideMove*300,y-180,obj_attack);
     if (image_index &gt;= image_number - 20 &amp;&amp; image_index &lt;= image_number - 1) 
     {
