@@ -287,7 +287,11 @@ case 'ATCK':
         view_yview[0] += random_range(-16,16);
         view_xview[0] += random_range(-16,16);
         
-    }   
+    }
+    if (image_index == image_number - 25)
+    {
+        audio_play_sound(snd_hammerHit,1,0);   
+    }
     if (image_index &gt;= image_number - 1)
     {
         
