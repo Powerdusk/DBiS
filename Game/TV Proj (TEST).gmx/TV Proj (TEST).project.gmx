@@ -16,6 +16,7 @@
       <sprite>sprites\spr_player_slide</sprite>
       <sprites name="atk">
         <sprite>sprites\spr_player_atk_1</sprite>
+        <sprite>sprites\spr_player_atk_2</sprite>
       </sprites>
       <sprites name="misc">
         <sprite>sprites\spr_jumpDust</sprite>

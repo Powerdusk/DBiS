@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>grav = .7;
+            <string>//controller/not
+selControl = 1;
+
+//vars
+grav = .7;
 vsp = 0;
 hsp = 0;
 move = 0;
@@ -57,7 +61,12 @@ lifepts = 0;
 playerState = '';
 
 image_speed = 0.50;
-depth = -1
+depth = -1;
+
+//atck
+atck_num = 0;
+atck[0] = spr_player_atk_1;
+atck[1] = spr_player_atk_2;
 </string>
           </argument>
         </arguments>
@@ -81,24 +90,62 @@ depth = -1
           <argument>
             <kind>1</kind>
             <string>///DO STUFF PLZ
-key_right = keyboard_check(vk_right);
-key_left = keyboard_check(vk_left);
-key_jumpInit = keyboard_check_pressed(vk_up);
-key_jumpHold = keyboard_check(vk_up);
-key_moveReleaseR = keyboard_check_released(vk_right);
-key_atkRelease = keyboard_check_released(ord("Z"));
-key_moveReleaseL = keyboard_check_released(vk_left);
-key_movePressR = keyboard_check_pressed(vk_right);
-key_movePressL = keyboard_check_pressed(vk_left);
+key_selControl = keyboard_check_pressed(ord("O"));
+if (key_selControl) selControl = !selControl;
 
-key_atk_1 = keyboard_check_pressed(ord("Z"));
-//key_atk = keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("C"))
+switch selControl{
 
-key_down = keyboard_check_pressed(vk_down);
-key_full = keyboard_check_pressed(ord ("P"));
-key_end  = keyboard_check_pressed(vk_escape);
-key_re = keyboard_check_pressed(ord("R"));
+case 0:
+    key_right = keyboard_check(vk_right);
+    key_left = keyboard_check(vk_left);
+    key_jumpInit = keyboard_check_pressed(vk_up);
+    key_jumpHold = keyboard_check(vk_up);
+    key_moveReleaseR = keyboard_check_released(vk_right);
+    //key_atkRelease = keyboard_check_released(ord("Z"));
+    key_moveReleaseL = keyboard_check_released(vk_left);
+    key_movePressR = keyboard_check_pressed(vk_right);
+    key_movePressL = keyboard_check_pressed(vk_left);
+    
+    
+    key_atck = 
+        keyboard_check_pressed(ord("Z")) ||
+        keyboard_check_pressed(ord("X")) ||
+        keyboard_check_pressed(ord("C"));
+    //key_atk = keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("C"))
+    
+    key_down = keyboard_check_pressed(vk_down);
+    key_full = keyboard_check_pressed(ord ("P"));
+    key_end  = keyboard_check_pressed(vk_escape);
+    key_re = keyboard_check_pressed(ord("R"));
+    
+    break;
+    
+case 1:
 
+
+    key_right = gamepad_button_check(0,gp_padr);
+    key_left = gamepad_button_check(0,gp_padl);
+    key_jumpInit = gamepad_button_check_pressed(0,gp_face1);
+    key_jumpHold = gamepad_button_check(0,gp_face1);
+    key_moveReleaseR = gamepad_button_check_released(0,gp_padr);
+    //key_atkRelease = keyboard_check_released(ord("Z"));
+    key_moveReleaseL = gamepad_button_check_released(0,gp_padl);
+    key_movePressR = gamepad_button_check_pressed(0,gp_padr);
+    key_movePressL = gamepad_button_check_pressed(0,gp_padl);
+    
+    
+    key_atck = 
+        gamepad_button_check_pressed(0,gp_face4) ||
+        gamepad_button_check_pressed(0,gp_face2) ||
+        gamepad_button_check_pressed(0,gp_face3);
+    //key_atk = keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("C"))
+    
+    key_down = gamepad_button_check_pressed(0,gp_padd);
+    key_full = gamepad_button_check_pressed(0,gp_shoulderl);
+    key_end  = gamepad_button_check_pressed(0,gp_start);
+    key_re = gamepad_button_check_pressed(0,gp_select);
+    break;
+}
 //fullscreen\\
 
 if (key_full)
@@ -211,9 +258,14 @@ if (place_meeting(x,y+vsp,obj_wall))
 }
 
 
+//atck
+
+if gamepad_button_check_pressed(0,gp_face2) atck_num = 0;
+if gamepad_button_check_pressed(0,gp_face3) atck_num = 1;
+
 //state switcher\\
 
-if (grounded &amp;&amp; key_atk_1 &amp;&amp; playerState != 'ATCK')
+if (grounded &amp;&amp; key_atck &amp;&amp; playerState != 'ATCK')
 {
     playerState = 'BATK';
 }
@@ -272,7 +324,7 @@ else if (
 switch (playerState)
 {
 case 'BATK':
-    sprite_index = spr_player_atk_1;
+    sprite_index = atck[atck_num];
     image_index = 0;
     playerState = 'ATCK';
     finalX = view_xview[0];
@@ -284,8 +336,8 @@ case 'ATCK':
     if (image_index &gt;= image_number / 2)instance_create(x+slideMove*300,y-180,obj_attack);
     if (image_index &gt;= image_number - 20 &amp;&amp; image_index &lt;= image_number - 1) 
     {
-        view_yview[0] += random_range(-16,16);
-        view_xview[0] += random_range(-16,16);
+        view_yview[0] += random_range(-8,8);
+        view_xview[0] += random_range(-8,8);
         
     }
     if (image_index == image_number - 25)
@@ -313,6 +365,7 @@ case 'ATCK':
     
     break;
 
+    
 case 'IDLE':
     image_speed = .5;
     sprite_index = spr_player;
@@ -468,7 +521,8 @@ draw_text (view_xview[0]+20,view_yview[0]+60,moveSpeed);
 draw_text (view_xview[0]+20,view_yview[0]+80,grounded);
 draw_text (view_xview[0]+20,view_yview[0]+100,slideMove);
 draw_text (view_xview[0]+20,view_yview[0]+120,fullSpeed);
-draw_text (view_xview[0]+20,view_yview[0]+140,image_speed);
+draw_text (view_xview[0]+20,view_yview[0]+140,'PRESS START ON CONTROLLER TO QUIT');
+draw_text (view_xview[0]+20,view_yview[0]+160,'"O" ON KEYBOARD SWITCHES BETWEEN KEYS AND CONTROLLER');
 draw_self();
 
 </string>
