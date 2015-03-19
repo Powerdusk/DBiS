@@ -231,14 +231,14 @@ if (place_meeting(x+finalHsp,y,obj_wall))
     }
     if place_meeting(x+finalHsp,y-yplus,obj_wall)
     {
-        //if (place_meeting(x+finalHsp, y-yplus,obj_wall))
-        //{
-            //while(!place_meeting(x+sign(finalHsp),y,obj_wall))
-            //{
-            //    x += sign(move);
-            //}
+        if (place_meeting(x+finalHsp, y-yplus,obj_wall))
+        {
+            while(!place_meeting(x+sign(finalHsp),y,obj_wall))
+            {
+                x += sign(move);
+            }
             finalHsp = 0;
-        //}
+        }
     }
     else y-= yplus;
     
@@ -312,8 +312,8 @@ else if (playerState =='JUMP' &amp;&amp; key_jumpInit)
     image_index = 0;
 }
 else if (
+    //!place_meeting(x+finalHsp,y+finalHsp,obj_wall) &amp;&amp;
     !grounded &amp;&amp; 
-    y &gt;= abs(1.5*finalHsp+1) &amp;&amp;
     playerState != 'JUMP' &amp;&amp;
     playerState != 'DJMP' 
 
