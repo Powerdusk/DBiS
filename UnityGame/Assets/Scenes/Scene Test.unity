@@ -144,14 +144,15 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
   - {x: -12.9850006, y: 0}
-  - {x: -8.83491898, y: -.389719009}
+  - {x: -9.5389719, y: -.277070045}
   - {x: -7.15932226, y: -.933526516}
-  - {x: -5.36799145, y: -1.68368864}
+  - {x: -6.5944891, y: -1.24082518}
+  - {x: -5.42431593, y: -1.79633713}
   - {x: -3.31117916, y: -1.82562876}
-  - {x: -1.11196673, y: -1.65362072}
+  - {x: -1.1964525, y: -1.54097223}
   - {x: .210187554, y: -1.89974451}
   - {x: 1.36385942, y: -1.52315569}
-  - {x: 2.80341911, y: -.389612198}
+  - {x: 2.69077063, y: -.474099159}
   - {x: 3.90488291, y: -.250988007}
   - {x: 5.80632401, y: .308232784}
   - {x: 12.9850006, y: 0}
@@ -278,9 +279,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .180000007}
+  m_Offset: {x: 0, y: -.949999988}
   serializedVersion: 2
-  m_Size: {x: .860000014, y: 1.50999999}
+  m_Size: {x: 1.35000002, y: 1.98000002}
 --- !u!58 &1158944473
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -291,9 +292,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .0299999993, y: -.769999981}
+  m_Offset: {x: 0, y: -1.70000005}
   serializedVersion: 2
-  m_Radius: .50999999
+  m_Radius: .720000029
 --- !u!95 &1158944474
 Animator:
   serializedVersion: 3
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b76acdcc4f2d4e398b4a497d560dca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 12
   groundCheck: {fileID: 579398500}
   isGround:
     serializedVersion: 2
