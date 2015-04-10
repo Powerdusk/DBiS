@@ -6,11 +6,6 @@ Obj/
 UnityGenerated/
 Library/
 Assets/AssetStoreTools*
-UnityGame/Temp/
-UnityGame/Obj/
-UnityGame/UnityGenerated/
-UnityGame/Library/
-UnityGame/Assets/AssetStoreTools*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
