@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hero_controller_script : MonoBehaviour {
+public class HeroController : MonoBehaviour {
 
 	public float maxSpeed = 10;
 
@@ -27,7 +27,7 @@ public class hero_controller_script : MonoBehaviour {
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,isGround);
 		anim.SetBool("Ground", grounded);
 
-		anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
+		//anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
 		float move = Input.GetAxis("Horizontal");
 		GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
