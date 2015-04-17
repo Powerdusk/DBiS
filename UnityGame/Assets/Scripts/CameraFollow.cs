@@ -4,23 +4,14 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform target;
-	public float speed;
-	private Vector2 thisTrans;
-	
+	public float distance;
+	public float height;
+	public float width;
+	public float damping;
 
-	void Start()
-	{
-
-	}
 	void Update()
 	{
-		float mDist = Mathf.Sign((transform.position.x - target.position.x)* -1);
-
-		//float mPad = 2*mDist;
-
-		//thisTrans = new Vector2(mDist * speed,0);
-		if ( Mathf.Abs(transform.position.x - target.position.x) > 0)
-			transform.position = Vector3.Lerp (transform.position, target.position, speed) + new Vector3(0,0,-10);
-		//transform.Translate((0.08f * mDist),0,0);
+		Vector3 wantedPosition = target.TransformPoint(width,height, - distance);
+		transform.position = Vector3.Lerp(transform.position, wantedPosition,Time.deltaTime * damping);
 	}
 }
