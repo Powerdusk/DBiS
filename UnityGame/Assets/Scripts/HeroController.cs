@@ -26,6 +26,7 @@ public class HeroController : MonoBehaviour {
 		//GROUNDED?
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,isGround);
 		anim.SetBool("Ground", grounded);
+		print (grounded);
 
 		//anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
