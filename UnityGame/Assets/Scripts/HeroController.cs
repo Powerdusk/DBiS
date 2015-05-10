@@ -13,6 +13,8 @@ public class HeroController : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask isGround;
 	public float jumpForce = 700;
+	int preJumpCount = 0;
+	int preJumpFrames = 15;
 
 
 	// Use this for initialization
@@ -21,7 +23,7 @@ public class HeroController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 		//GROUNDED?
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,isGround);
@@ -30,7 +32,7 @@ public class HeroController : MonoBehaviour {
 
 		//anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
-		float move = Input.GetAxis("Horizontal");
+		float move = Input.GetAxisRaw("Horizontal");
 		GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
 		//anim
@@ -40,16 +42,21 @@ public class HeroController : MonoBehaviour {
 		//flip sprite
 		if (Input.GetAxisRaw("Horizontal") != 0)
 		{
-			GetComponent<Transform>().localScale = new Vector3 (Input.GetAxisRaw("Horizontal"),1,1);
+			GetComponent<Transform>().localScale = new Vector3 (Mathf.Sign (Input.GetAxisRaw("Horizontal")),1,1);
 		}
-	}
+	//}
 
-	void Update()
-	{
-		if (grounded && Input.GetKeyDown(KeyCode.Space))
-		{
-			anim.SetBool("Ground", false);
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+	//void Update()
+	//{
+		if (grounded && Input.GetButtonDown ("Jump")) {
+			anim.SetBool ("preJump", true);
+			preJumpCount = 0;
+		}
+		preJumpCount += 1;
+		if (preJumpCount == preJumpFrames) {
+			anim.SetBool ("preJump", false);
+			anim.SetBool ("Ground", false);
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
 		}
 	}
 

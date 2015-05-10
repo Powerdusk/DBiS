@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 5c23d38731f0d46afb93f1b3a9b1f07e
-timeCreated: 1431107824
+guid: 5eabf2d0d71852d4aaa0a052208bd522
+timeCreated: 1431195677
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: run_2-1-sheet-512_0
-    21300002: run_2-1-sheet-512_1
-    21300004: run_2-1-sheet-512_2
-    21300006: run_2-1-sheet-512_3
-    21300008: run_2-1-sheet-512_4
-    21300010: run_2-1-sheet-512_5
-    21300012: run_2-1-sheet-512_6
-    21300014: run_2-1-sheet-512_7
+    21300000: jump-1-1-sheet1-512_0
+    21300002: jump-1-1-sheet1-512_1
+    21300004: jump-1-1-sheet1-512_2
+    21300006: jump-1-1-sheet1-512_3
+    21300008: jump-1-1-sheet1-512_4
+    21300010: jump-1-1-sheet1-512_5
+    21300012: jump-1-1-sheet1-512_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,7 +56,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: run_2-1-sheet-512_0
+    - name: jump-1-1-sheet1-512_0
       rect:
         serializedVersion: 2
         x: 0
@@ -67,7 +66,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_1
+    - name: jump-1-1-sheet1-512_1
       rect:
         serializedVersion: 2
         x: 512
@@ -77,7 +76,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_2
+    - name: jump-1-1-sheet1-512_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -87,7 +86,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_3
+    - name: jump-1-1-sheet1-512_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -97,7 +96,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_4
+    - name: jump-1-1-sheet1-512_4
       rect:
         serializedVersion: 2
         x: 0
@@ -107,7 +106,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_5
+    - name: jump-1-1-sheet1-512_5
       rect:
         serializedVersion: 2
         x: 512
@@ -117,20 +116,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_6
+    - name: jump-1-1-sheet1-512_6
       rect:
         serializedVersion: 2
         x: 1024
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: run_2-1-sheet-512_7
-      rect:
-        serializedVersion: 2
-        x: 1536
         y: 0
         width: 512
         height: 512
