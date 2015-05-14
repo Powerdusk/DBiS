@@ -66,10 +66,10 @@ public class HeroControllerTest : MonoBehaviour {
 				break;
 
 		}
-
+		Debug.Log(heroState); 
 
 		// S P R I T E && A N I M \\
-		//anim
+		//anim 
 		anim.SetFloat("speed", Mathf.Abs(move));
 		//flip sprite
 		if (Input.GetAxisRaw("Horizontal") != 0)
