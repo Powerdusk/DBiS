@@ -16,6 +16,7 @@ public class HeroControllerTest : MonoBehaviour {
 	int preJumpCount = 0;
 	int preJumpFrames = 7;
 	private float move;
+	private float speedDir;
 
 
 	private string heroState = "IDLE";
@@ -35,6 +36,7 @@ public class HeroControllerTest : MonoBehaviour {
 
 		// M O V E \\
 		float move = Input.GetAxisRaw("Horizontal");
+		speedDir = move * maxSpeed;
 
 		// G R O U N D E D \\
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,isGround);
@@ -62,7 +64,12 @@ public class HeroControllerTest : MonoBehaviour {
 		{
 			case "IDLE":
 				
-				rBody.velocity = new Vector2(move * maxSpeed, rBody.velocity.y);
+				rBody.AddForce (new Vector2(move * maxSpeed, 0));
+				//rBody.velocity.x = speedDir;
+				break;
+			case "RUN":
+				rBody.AddForce(new Vector2(move * maxSpeed, 0));
+				//rBody.velocity.x = speedDir;
 				break;
 
 		}
