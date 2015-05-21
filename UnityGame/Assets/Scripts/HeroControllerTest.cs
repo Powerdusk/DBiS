@@ -57,6 +57,10 @@ public class HeroControllerTest : MonoBehaviour {
 		{
 			heroState = "JUMP";
 		}
+		if (!grounded)
+		{
+			heroState = "FALL";
+		}
 
 
 
@@ -68,6 +72,10 @@ public class HeroControllerTest : MonoBehaviour {
 				//rBody.velocity.x = speedDir;
 				break;
 			case "RUN":
+				rBody.AddForce(new Vector2(move * maxSpeed, 0));
+				//rBody.velocity.x = speedDir;
+				break;
+			case "FALL":
 				rBody.AddForce(new Vector2(move * maxSpeed, 0));
 				//rBody.velocity.x = speedDir;
 				break;
