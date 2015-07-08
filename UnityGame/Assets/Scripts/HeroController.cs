@@ -17,6 +17,14 @@ public class HeroController : MonoBehaviour {
 	public int preJumpFrames = 5;
 	public int shortHopWindow = 2;
 	public bool isPrejump = false;
+	public int jumpNum = 0;
+	public int jumpMax;
+
+	public LayerMask isLedge;
+	public Transform wallCheck;
+	public float wallRadius = 0.2f;
+	public bool walled = false;
+	public bool ledge = false;
 
 	// Use this for initialization
 	void Start () {
@@ -30,19 +38,38 @@ public class HeroController : MonoBehaviour {
 	}
 	//anything sensitive to the framerate (movements) should go in here instead, this runs on a forced 60fps calculation
 	//while update can run faster based on your computer
-	 void FixedUpdate()
+	void FixedUpdate()
 	{
 		
 		//GROUNDED?
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,isGround);
 		anim.SetBool("Ground", grounded);
+		if(grounded && !walled)
+			jumpNum = 0;
+
+		if(!grounded && Physics2D.OverlapCircle(wallCheck.position,wallRadius,isGround))
+			walled = true;
+		else
+			walled = false;
+
+		if(!grounded && Physics2D.OverlapCircle(wallCheck.position,wallRadius,isLedge))
+			ledge = true;
+		else
+			ledge = false;
+
+		if(walled && gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
+			gameObject.GetComponent<Rigidbody2D>().gravityScale = .3f;
+		else
+			gameObject.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
 		//print (grounded);
 		
 		//anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 		
 		float move = Input.GetAxisRaw("Horizontal");
-		GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-		
+
+		if(!walled)
+			GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
 		//anim
 		anim.SetFloat("speed", Mathf.Abs(move));
 		//avoid constantly referenceing input
@@ -52,8 +79,10 @@ public class HeroController : MonoBehaviour {
 		{
 			GetComponent<Transform>().localScale = new Vector3 (Mathf.Sign (Hinput),1,1);
 		}
+		if(Input.GetButtonUp("Jump"))
+			jumpNum++;
 		//if you are grounded, pressing the button and have not already started a jump
-		if (grounded && Input.GetButtonDown ("Jump") && !isPrejump) {
+		if (jumpNum < jumpMax && Input.GetButtonDown ("Jump") && !isPrejump) {
 			//start anim
 			anim.SetBool ("preJump", true);
 			//start a jump
@@ -66,7 +95,7 @@ public class HeroController : MonoBehaviour {
 			Debug.Log (preJumpCount);
 		}
 		//short hop
-		else if (preJumpCount > 0 && preJumpCount <= shortHopWindow && Input.GetButtonUp ("Jump") && isPrejump) {
+		else if (jumpNum < jumpMax && preJumpCount > 0 && preJumpCount <= shortHopWindow && Input.GetButtonUp ("Jump") && isPrejump) {
 			preJumpCount = 0;
 			isPrejump = false;
 			anim.SetBool("preJump",false);
@@ -75,7 +104,7 @@ public class HeroController : MonoBehaviour {
 			Debug.Log ("short hop");
 		}
 		//full hop
-		else if (preJumpCount >= preJumpFrames || (isPrejump && !Input.GetButton("Jump"))) {
+		else if (jumpNum < jumpMax && preJumpCount >= preJumpFrames || (isPrejump && !Input.GetButton("Jump"))) {
 			anim.SetBool ("preJump", false);
 			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, 2*jumpForce));
 			preJumpCount = 0;
