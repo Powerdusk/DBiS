@@ -63,8 +63,10 @@ public class HeroController : MonoBehaviour {
 			gameObject.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
 
 
+		anim.SetBool("wallSlide", walled);
 		if(!walled)
 			GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
 		else{
 			if(ledge){
 				GetComponent<Rigidbody2D>().velocity = new Vector2(0f,0f);
@@ -82,6 +84,13 @@ public class HeroController : MonoBehaviour {
 		if (Hinput != 0)
 		{
 			GetComponent<Transform>().localScale = new Vector3 (Mathf.Sign (Hinput),1,1);
+		}
+
+		if(walled && Input.GetButtonDown("Jump")){
+			float old = GetComponent<Transform>().localScale.x;
+			GetComponent<Transform>().localScale = new Vector3 (old * -1,1,1);
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
+			GetComponent<Rigidbody2D> ().velocity = new Vector2(maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 		}
 
 
