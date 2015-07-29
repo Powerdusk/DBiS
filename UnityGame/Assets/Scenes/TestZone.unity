@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 779eceb6a4b477e48b4263ec88bdcdd1, type: 2}
       propertyPath: orthographic size
-      value: 6.84375
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 779eceb6a4b477e48b4263ec88bdcdd1, type: 2}
       propertyPath: pixelScale
@@ -1009,7 +1009,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 407636, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -89.6999969
+      value: -82.0299988
       objectReference: {fileID: 0}
     - target: {fileID: 407636, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1037,16 +1037,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407636, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
       propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 119420, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
-      propertyPath: m_Name
-      value: Enemy
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11424886, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 1158944470}
+    - target: {fileID: 119420, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13d239da2c1784c499ed87f8e6fe2d41, type: 2}
   m_IsPrefabParent: 0

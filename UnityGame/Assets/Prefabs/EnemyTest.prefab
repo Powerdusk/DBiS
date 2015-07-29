@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 407636}
   - 212: {fileID: 21221464}
-  - 61: {fileID: 6197902}
   - 114: {fileID: 11424886}
   - 50: {fileID: 5014148}
+  - 58: {fileID: 5817456}
   m_Layer: 20
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.379999995, y: 2.25, z: 0}
+  m_LocalPosition: {x: -82.0299988, y: 3.20000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457192}
@@ -76,8 +76,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6197902
-BoxCollider2D:
+--- !u!58 &5817456
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -86,9 +86,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -.148889542, y: .357318878}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 17.4889374, y: 16.7713776}
+  m_Radius: 10
 --- !u!114 &11424886
 MonoBehaviour:
   m_ObjectHideFlags: 1
