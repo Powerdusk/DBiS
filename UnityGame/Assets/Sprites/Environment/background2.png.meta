@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 97bfbb7409051fc419f71eff39cb3c99
+timeCreated: 1437596525
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: background2_0
+    21300002: background2_1
+    21300004: background2_2
+    21300006: background2_3
+    21300008: background2_10
+    21300010: background2_11
+    21300012: background2_17
+    21300014: background2_18
+    21300016: background2_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: 4
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: 0
+    aniso: 0
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0, y: 1}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: background2_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 433
+        width: 374
+        height: 150
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 517
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_2
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 436
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_3
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 363
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_10
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 217
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_11
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 290
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_17
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 284
+        width: 305
+        height: 149
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_18
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 129
+        width: 342
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background2_19
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 138
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
